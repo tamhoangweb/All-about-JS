@@ -168,3 +168,52 @@ Khi dùng:
 /* lấy được value là Tâm Hoàng */
 myInfo["full-name"];
 ```
+
+### Object constructor
+
+1. Tạo bản mô tả cho Object
+
+```js
+function User(firstName, lastName, avatar) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.avatar = avatar;
+
+  this.getName = function () {
+    return `${this.firstName} ${this.lastName}`;
+  };
+}
+```
+
+hoặc
+
+```js
+let User = function (firstName, lastName, avatar) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.avatar = avatar;
+};
+```
+
+2. Tạo đối tượng từ bản mô tả
+
+```js
+let author = new User("Tam", "Hoang", "img1.png");
+```
+
+#### Cách tìm object constructor của 1 object
+
+```js
+author.constructor;
+
+/* true */
+author.constructor === User;
+```
+
+#### Object prototype
+
+Nguyên liệu tạo nên object ở bên ngoài Object constructor.
+
+```js
+User.prototype.className = "F8";
+```
