@@ -127,3 +127,44 @@ classList.toggle("hi", false);
 ```javascript
 span.style.backgroundColor = "red";
 ```
+
+## FUNCTION
+
+### Sự khác nhau giữa Declaration function và Expression function
+
+- Declaration function: có thể viết lệnh gọi hàm, trước các lệnh định nghĩa hàm. (hoisting)
+
+## OBJECT
+
+### Cách viết và dùng key trong object
+
+1. Viết key bằng biến
+
+```js
+let emailKey = "email";
+let myInfo = {
+  [emailKey]: "tamhoangweb@gmail.com",
+};
+```
+
+Khi dùng:
+
+```js
+/* lấy được value là tamhoangweb@gmail.com */
+myInfo.email;
+```
+
+2. Viết key bằng dấu ''
+
+```js
+let myInfo = {
+  "full-name": "Tâm Hoàng",
+};
+```
+
+Khi dùng:
+
+```js
+/* lấy được value là Tâm Hoàng */
+myInfo["full-name"];
+```
