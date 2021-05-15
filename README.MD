@@ -217,3 +217,197 @@ Nguyên liệu tạo nên object ở bên ngoài Object constructor.
 ```js
 User.prototype.className = "F8";
 ```
+
+## CLASS
+
+```js
+class Course {
+  constructor(name, price) {
+    this.name = name;
+    this.price = price;
+  }
+
+  getName() {
+    return this.name;
+  }
+}
+```
+
+## ...rest
+
+### Dùng trong mảng
+
+```js
+let array = ["JS", "PHP", "Python"];
+
+let [a, ...rest] = array;
+
+console.log("a: ", a);
+console.log("rest: ", rest);
+```
+
+kết quả
+
+```
+a: JS
+rest: ["PHP", "Python"]
+```
+
+### Dùng trong đối tượng
+
+```js
+let course = {
+  name: "JS",
+  price: "1000",
+  image: "img1.png",
+};
+
+let { name, ...newObject } = course;
+
+console.log(newObject);
+```
+
+Kết quả
+
+```
+Object { price: "1000", image: "img1.png" }
+```
+
+Đổi tên key của object. vd: key name đổi thành parentName
+
+```js
+let { name: parentName } = course;
+
+console.log(parentName);
+```
+
+Kết quả:
+
+```
+"JS"
+```
+
+### Dùng rest cùng với destructuring trong object
+
+```js
+function logger({ name, price, ...rest }) {
+  console.log(name);
+  console.log(price);
+  console.log(rest);
+}
+
+logger({
+  name: "JS",
+  price: 1000,
+  description: "OK",
+});
+```
+
+Kết quả
+
+```
+JS
+1000
+Object { description: "OK" }
+```
+
+## spread (...array)
+
+```js
+let arr1 = ["JS", "PHP"];
+let arr2 = ["Python", "Reactjs"];
+
+let arr3 = [...arr1, ...arr2];
+
+console.log(arr3);
+```
+
+### dùng spread tạo object mới với các key-value của object cũ, và ghi đè key nếu đã tồn tại
+
+```js
+let defaultConfig = {
+  api: "https://url1.com",
+  apiVersion: "v1",
+  other: "other",
+};
+
+let exerciseConfig = {
+  ...defaultConfig,
+  api: "https://url2.info",
+};
+
+console.log(exerciseConfig);
+```
+
+Kết quả
+
+```
+Object { api: "https://url2.info", apiVersion: "v1", other: "other" }
+```
+
+## Module: IMPORT, EXPORT
+
+### 1a. Khi export default
+
+1 File JS chỉ có 1 export Defaut
+
+```js
+export default logger;
+```
+
+### 1b. Khi import của export default
+
+```js
+import logger from "./logger.js";
+```
+
+### 2a. Khi export bình thường
+
+```js
+export const TYPE_ERROR = "error";
+```
+
+### 2b. Thì import bằng object
+
+```js
+import { TYPE_ERROR } from "./constants.js";
+```
+
+### 3. import \*
+
+```js
+import * as contants from "./contants.js";
+```
+
+Nhận được 1 object
+
+```js
+constants.TYPE_ERROR;
+```
+
+### 4. export default trong file index
+
+1. Folder
+
+```folder
+logger/index.js + logger.js
+```
+
+2. JS
+
+```js
+import logger from "./logger.js";
+export default logger;
+```
+
+hoặc
+
+```js
+export { default } from "./logger.js";
+```
+
+hoặc
+
+```js
+export { default as logger2 } from "./logger.js";
+```
