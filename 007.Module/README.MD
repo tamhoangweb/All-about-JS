@@ -88,3 +88,18 @@ Code sẽ chạy ở file shoppingCart, và thực hiện hàm add là hàm đư
 ```js
 import add, { addToCart, totalPrice, qt } from './shoppingCart.js';
 ```
+
+## 7. Trường hợp 7: import 1 file js từ thư viện lodash-es
+
+File: cloneDeep.js
+
+```js
+export default cloneDeep;
+```
+
+File: scripts.js (là file sử dụng cloneDeep)
+
+```js
+import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
+const stateDeepClone = cloneDeep(state);
+```
