@@ -74,3 +74,21 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+
+//SLICE: copy mảng với số lượng và vị trí của phần tử.
+//Không làm biến đổi (not mutate) mảng cũ.
+const a = ['a', 'b', 'c', 'd', 'e'];
+// console.log(a.slice(2));
+const c = a.slice(2);
+c[1] = 'x';
+console.log(c, a);
+
+//SPLICE: bế đi luôn phần tử của mảng cũ
+//Có làm biến đổi (mutate) mảng cũ
+
+//REVERSE: lật ngược các vị trí của mảng.
+//Có làm biến đổi (mutate) mảng cũ
+
+//CONCAT: mảng a nối với mảng b
+
+//JOIN: nối các phần tử của mảng thành chuỗi
